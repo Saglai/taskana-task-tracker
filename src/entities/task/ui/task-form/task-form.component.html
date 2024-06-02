@@ -1,0 +1,57 @@
+<mat-card class="add-task-card">
+    <mat-card-content>
+        <form class="add-task-card__form" [formGroup]="form">
+                <mat-form-field class="title">
+                    <mat-label>Title</mat-label>
+                    <input type="text" matInput formControlName="title">
+                    @if (title.hasError('required')) {
+                        <mat-error>Title is required</mat-error>
+                    }
+                </mat-form-field>    
+                
+                <div>
+                    <mat-form-field class="status">
+                        <mat-label>Select the status</mat-label>
+                        <mat-select formControlName="status">
+                            @for (status of statuses; track $index) {
+                                <mat-option [value]="status">{{status | status}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+    
+                    <mat-form-field class="priority">
+                        <mat-label>Select the priority</mat-label>
+                        <mat-select formControlName="priority">
+                            @for (priority of priorities; track $index) {
+                                <mat-option [value]="priority">{{priority | priority}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+        
+                <mat-form-field class="deadline">
+                    <mat-label>Select the deadline</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="deadline">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="assignTo">
+                    <mat-label>Assign to</mat-label>
+                    <input type="text" matInput formControlName="assignTo">
+                </mat-form-field>  
+
+                <mat-form-field class="description">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                  </mat-form-field>
+
+            <div class="add-task-card_btns">
+                <button class="clear-btn" mat-raised-button (click)="onClear()">Clear</button>
+                <ng-content class="btn"></ng-content>
+            </div>
+        </form>
+        
+    </mat-card-content>
+</mat-card>

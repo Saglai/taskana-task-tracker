@@ -1,0 +1,27 @@
+.add-task-card {
+    width: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.266);
+
+    .add-task-card__form {
+        display: flex;
+        flex-direction: column;
+        
+        .status {
+            width: 49%;
+            margin-right: 2%;
+        }
+
+        .priority {
+            width: 49%;
+        }
+
+        .deadline {
+            margin-bottom: 10px;
+        }
+
+        .clear-btn {
+            margin-right: 10px;
+        }
+    }
+}
+

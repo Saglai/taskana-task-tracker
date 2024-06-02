@@ -1,18 +1,16 @@
 import { isDevMode } from '@angular/core';
 import {
-  ActionReducer,
   ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
   MetaReducer
 } from '@ngrx/store';
+import { tasksReducer, TasksState } from '../../entities/task/model/task.reducer';
 
 export interface State {
-
+  tasks: TasksState
 }
 
 export const reducers: ActionReducerMap<State> = {
-
+  tasks: tasksReducer
 };
 
 

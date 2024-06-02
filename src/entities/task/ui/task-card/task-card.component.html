@@ -1,0 +1,38 @@
+<mat-card class="add-task-card">
+    <mat-card-content *ngIf="task$ | async as task; else loading">
+
+        <div class="title-container add-task-card__info">
+            <div class="label">Title:</div>
+            <div class="title"> {{task.title}}</div>
+        </div>
+
+        <div class="status-container add-task-card__info">
+            <div class="label">Status:</div>
+            <div class="status"> {{task.status | status}} </div>
+        </div>
+
+        <div class="priority-container add-task-card__info">
+            <div class="label">Priority:</div>
+            <div class="priority">{{task.priority | priority}}</div>
+        </div>
+           
+        <div class="deadline-container add-task-card__info">
+            <div class="label">Deadline:</div>
+            <div class="deadline">{{task.deadline | date: 'dd MMM YYYY'}}</div>
+        </div>
+
+        <div class="assignTo-container add-task-card__info">
+            <div class="label">Assign to:</div>
+            <div class="assign-to">{{task.assignTo}}</div>
+        </div>
+
+        <div class="description-container add-task-card__info">
+            <div class="label">Description:</div>
+            <div class="description">{{task.description}}</div> 
+        </div>
+    </mat-card-content>
+
+    <ng-template #loading>
+        {{notFoundMessage}}
+    </ng-template>
+</mat-card>

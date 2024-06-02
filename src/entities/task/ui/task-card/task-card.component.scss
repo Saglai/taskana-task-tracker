@@ -1,0 +1,16 @@
+.add-task-card {
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.266);
+
+    .add-task-card__info {
+        display: flex;
+        flex-direction: row;
+        padding: 8px;
+
+        .label {
+            font-size: 16px;
+            font-weight: 450;
+            width: 150px;
+        }
+    }
+}

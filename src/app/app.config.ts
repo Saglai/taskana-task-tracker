@@ -6,13 +6,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideStore } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { provideEffects } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
+import { TaskEffects } from '../entities/task/model/task.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes), 
     provideAnimationsAsync(), 
     provideStore(reducers, { metaReducers }), 
-    provideEffects(AppEffects)
+    provideEffects(TaskEffects)
   ]
 };
