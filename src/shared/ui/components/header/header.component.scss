@@ -1,0 +1,15 @@
+.header-container {
+    width: 100%;
+    background-color: black;
+    color: #f06a69;
+    padding: 10px 8px;
+
+    h1 {
+        display: inline-block;
+        margin: 0;
+    }
+
+    h1:hover {
+        cursor: pointer;
+    }
+}
