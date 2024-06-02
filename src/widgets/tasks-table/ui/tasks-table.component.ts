@@ -26,6 +26,10 @@ import { StatusPipe } from "../../../entities/task/lib/status.pipe";
         RouterModule,
         PriorityPipe,
         StatusPipe
+    ], 
+    providers: [
+        SortByPipe, 
+        SortDirectionPipe
     ]
 })
 export class TasksTableComponent implements OnInit {
