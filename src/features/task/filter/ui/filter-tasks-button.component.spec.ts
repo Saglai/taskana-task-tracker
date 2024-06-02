@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FilterTasksButtonComponent } from './filter-tasks-button.component';
+import { provideMockStore } from '@ngrx/store/testing';
+
+const initialState = {};
 
 describe('FilterTasksButtonComponent', () => {
   let component: FilterTasksButtonComponent;
@@ -8,7 +10,8 @@ describe('FilterTasksButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FilterTasksButtonComponent]
+      imports: [FilterTasksButtonComponent], 
+      providers: [provideMockStore({ initialState })]
     })
     .compileComponents();
     
