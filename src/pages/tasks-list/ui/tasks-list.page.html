@@ -1,0 +1,12 @@
+<div class="outer-container">
+    <app-content-header class="content__header">
+        <div title>My Tasks List</div>
+        <button redirect-button mat-raised-button [routerLink]="'/task-add'">Add Task</button>
+    </app-content-header>
+    
+    <app-tasks-filter-card class="content__filter-card">
+        <app-filter-tasks-button></app-filter-tasks-button>
+    </app-tasks-filter-card>
+    
+    <app-tasks-table class="content__tasks-table"></app-tasks-table>
+</div>

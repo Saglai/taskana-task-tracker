@@ -1,0 +1,1 @@
+export {ContentHeaderComponent} from './ui/content-header.component';

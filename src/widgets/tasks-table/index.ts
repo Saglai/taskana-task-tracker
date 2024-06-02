@@ -1,0 +1,1 @@
+export {TasksTableComponent} from './ui/tasks-table.component';

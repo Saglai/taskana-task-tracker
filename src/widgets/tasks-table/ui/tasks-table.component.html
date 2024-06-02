@@ -1,0 +1,124 @@
+<div class="outer-container">
+    <div class="spinner-container">
+        <mat-progress-spinner *ngIf="isLoading" color="primary" mode="indeterminate"></mat-progress-spinner>
+    </div>
+    
+    <form *ngIf="!isLoading" [formGroup]="taskForm">
+        <table mat-table [dataSource]="tasksList" matSort (matSortChange)="onSort($event)">
+            <div formArrayName="tableRowArray">
+                <ng-container *ngFor="let column of columns" [matColumnDef]="column.property">
+
+                    <ng-container *ngIf="column.isSort">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{column.label}}</th>
+                    </ng-container>
+
+                    <ng-container *ngIf="!column.isSort">
+                        <th mat-header-cell *matHeaderCellDef>{{column.label}}</th>
+                    </ng-container>
+                    
+                    <td mat-cell *matCellDef="let task; let rowIndex = index" [formGroupName]="rowIndex">
+                        <ng-container *ngIf="!task.isEdit">
+                            @switch (column.label) {
+                                @case ('Deadline') {
+                                    {{task[column.property] | date: 'dd MMM YY'}} 
+                                }
+                                @case ('Priority') {
+                                    {{task[column.property] | priority }} 
+                                }
+                                @case ('Status') {
+                                    {{task[column.property] | status }} 
+                                }
+                                @case ('Info') {
+                                    <mat-icon 
+                                        class="task-icons"
+                                        aria-hidden="false" 
+                                        aria-label="info icon" 
+                                        fontIcon="info"
+                                        routerLink="./details/{{task.id}}"
+                                    ></mat-icon>
+                                }
+                                @case ('Edit') {
+                                    <mat-icon
+                                    class="task-icons"
+                                        aria-hidden="false" 
+                                        aria-label="edit icon" 
+                                        fontIcon="edit"
+                                        (click)="task.isEdit = !task.isEdit"
+                                    ></mat-icon>
+                                }
+                                @default {
+                                    {{task[column.property]}} 
+                                }
+                            }
+                        </ng-container>
+
+                        <ng-container *ngIf="task.isEdit">
+                            @switch (column.label) {
+                                @case ('Status') {
+                                    <mat-form-field subscriptSizing="dynamic">
+                                        <mat-select formControlName="status">
+                                            @for (status of statuses; track $index) {
+                                                <mat-option [value]="status">{{status | status}}</mat-option>
+                                            }
+                                        </mat-select>
+                                    </mat-form-field>
+                                }
+                                @case ('Assign to') {
+                                    <mat-form-field subscriptSizing="dynamic">
+                                        <input matInput formControlName="assignTo">
+                                    </mat-form-field>
+                                }
+                                @case ('Deadline') {
+                                    {{task[column.property] | date: 'dd MMM YY'}} 
+                                }
+                                @case ('Priority') {
+                                    {{task[column.property] | priority }} 
+                                }
+                                @case ('Info') {
+                                    <mat-icon 
+                                        class="task-icons"
+                                        aria-hidden="false" 
+                                        aria-label="info icon" 
+                                        fontIcon="info"
+                                        routerLink="./details/{{task.id}}"
+                                    ></mat-icon>
+                                }
+                                @case ('Edit') {
+                                    <div class="edit-icons">
+                                        <mat-icon
+                                            class="task-icons"
+                                            aria-hidden="false" 
+                                            aria-label="check icon" 
+                                            fontIcon="check"
+                                            (click)="task.isEdit = !task.isEdit"
+                                            (click)="onTaskEditDone(rowIndex)"
+                                        ></mat-icon>
+                                        <mat-icon
+                                            class="task-icons"
+                                            aria-hidden="false" 
+                                            aria-label="cancel icon" 
+                                            fontIcon="cancel"
+                                            (click)="task.isEdit = !task.isEdit"
+                                        ></mat-icon>
+                                    </div>
+                                }
+                                @default {
+                                    {{task[column.property]}} 
+                                }
+                            }
+                        </ng-container>
+                    </td>
+                </ng-container>
+            </div>
+        
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+    
+            <tr *matNoDataRow>
+                <td class="not-found-message" [colSpan]="columnsToDisplay.length">
+                  {{notFoundTableDataMessage}}
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

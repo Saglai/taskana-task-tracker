@@ -1,0 +1,40 @@
+<mat-card class="filter-card">
+    <mat-card-content>
+        <div class="filter-card__title">{{title}}</div>
+
+        <form class="filter-card__form" [formGroup]="form">
+            <div class="form__assign-to-container">
+                <mat-form-field class="assign">
+                    <mat-label>Assigned to</mat-label>
+                    <input type="text" matInput formControlName="assignTo">
+                </mat-form-field>    
+            </div>
+            
+            <div class="form__container">
+                <mat-form-field class="status">
+                    <mat-label>Select the status</mat-label>
+                    <mat-select formControlName="status">
+                        @for (status of statuses; track $index) {
+                            <mat-option [value]="status">{{status | status}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+                
+        
+                <mat-form-field class="deadline">
+                    <mat-label>Select the deadline</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="deadline">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="btns">
+                <button class="clear-btn" mat-raised-button (click)="onClear()">Clear</button>
+                <ng-content class="btns"></ng-content>
+            </div>
+        </form>
+        
+    </mat-card-content>
+</mat-card>

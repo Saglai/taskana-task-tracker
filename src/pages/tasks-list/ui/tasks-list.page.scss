@@ -1,0 +1,11 @@
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    .content__header,
+    .content__filter-card,
+    .content__tasks-table {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,39 @@
+.filter-card {
+    width: 545px;
+    border: 1px solid rgba(0, 0, 0, 0.266);;
+
+    .filter-card__title {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .form__assign-to-container {
+        min-width: 150px;
+        max-width: 500px;
+        width: 100%;
+
+        .assign {
+            width: 100%;
+        }
+    }
+
+    .form__container {
+        min-width: 150px;
+        max-width: 500px;
+        width: 100%;
+
+        .status {
+            width: 49%;
+            margin-right: 2%;
+        }
+
+        .deadline {
+            width: 49%;
+        }
+    }
+
+    .clear-btn {
+        margin-right: 5px;
+    }
+}

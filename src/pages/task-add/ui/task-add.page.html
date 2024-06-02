@@ -1,0 +1,10 @@
+<div class="outer-container">
+    <app-content-header class="header">
+        <div title>Create a new task</div>
+        <button redirect-button mat-raised-button [routerLink]="'/tasks'">My tasks</button>
+    </app-content-header>
+    
+    <app-task-form>
+        <app-create-task-button></app-create-task-button>
+    </app-task-form>
+</div>

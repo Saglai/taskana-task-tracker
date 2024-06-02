@@ -1,0 +1,60 @@
+.outer-container {
+    width: 1100px;
+    padding: 3px;
+    padding-bottom: 8px;
+    box-shadow: rgba(0, 0, 0, 0.266) 0px 4px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.266);
+    
+    .mat-column-title {
+        min-width: 200px !important;
+        max-width: 250px !important;
+    }
+
+    .mat-column-priority {
+        width: 80px !important;
+    }
+
+    .mat-column-deadline {
+        width: 80px !important;
+    }
+
+    .mat-column-info {
+        width: 40px !important;
+    }
+
+    .mat-column-status {
+        max-width: 120px !important;
+    }
+
+    .mat-column-assignTo {
+        min-width: 120px !important;
+        max-width: 120px !important;
+    }
+
+    .mat-column-details {
+        max-width: 50px !important;
+    }
+
+    .not-found-message {
+        padding: 8px;
+    }
+
+    .mat-mdc-row .mat-mdc-cell {
+        border-bottom: 1px solid transparent;
+        border-top: 1px solid transparent;
+    }
+      
+    .mat-mdc-row:hover .mat-mdc-cell {
+        border-color: currentColor;
+    }
+
+    .task-icons:hover {
+        cursor: pointer;
+    }
+
+    .spinner-container {
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+    }
+}

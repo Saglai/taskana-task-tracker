@@ -1,0 +1,1 @@
+export {TaskDetailsCardComponent} from './ui/task-details-card.component';
