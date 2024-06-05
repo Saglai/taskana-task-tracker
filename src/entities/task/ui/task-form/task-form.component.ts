@@ -3,11 +3,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
 import { tasksActions } from '../../model/task.actions';
-import { Priorities, Statuses } from '../../api/types';
 import { UiKitModule } from '../../../../shared/ui';
 import { SharedModule } from '../../../../shared/lib';
 import { StatusPipe } from "../../lib/status.pipe";
 import { PriorityPipe } from "../../lib/priority.pipe";
+import { Priorities, Statuses } from '../../../../shared/models/enums/task.enums';
 
 @Component({
     selector: 'app-task-form',
@@ -17,10 +17,10 @@ import { PriorityPipe } from "../../lib/priority.pipe";
     imports: [UiKitModule, SharedModule, StatusPipe, PriorityPipe]
 })
 export class TaskFormComponent implements OnInit {
-  form!: FormGroup;
-  notifier = new Subject();
-  statuses = [Statuses.todo, Statuses.progress, Statuses.complete];
-  priorities = [Priorities.low, Priorities.medium, Priorities.high];
+  private notifier = new Subject();
+  public statuses = [Statuses.todo, Statuses.progress, Statuses.complete];
+  public priorities = [Priorities.low, Priorities.medium, Priorities.high];
+  public form!: FormGroup;
 
   constructor(
     private fb: FormBuilder, 
@@ -32,10 +32,10 @@ export class TaskFormComponent implements OnInit {
 
     this.form.valueChanges.pipe(
       takeUntil(this.notifier)
-    ).subscribe(value => this.store.dispatch(tasksActions.addTaskQueryChanged({task: value})));
+    ).subscribe(values => this.store.dispatch(tasksActions.addTaskQueryChanged({task: values})));
   }
 
-  onClear() {
+  onClear(): void {
     this.form.reset();
     this.form.patchValue({status: Statuses.todo})
   }

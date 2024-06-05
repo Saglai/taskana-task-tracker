@@ -4,10 +4,10 @@ import { Store } from '@ngrx/store';
 import { map, of, Subject, takeUntil, withLatestFrom } from 'rxjs';
 import { UiKitModule } from '../../../shared/ui';
 import { SharedModule } from '../../../shared/lib';
-import { Statuses } from '../../../entities/task/api/types';
 import { getTasksQuerySelector } from '../../../entities/task/model/task.selectors';
 import { filterActions } from '../../../entities/task/model/task.actions';
 import { StatusPipe } from "../../../entities/task/lib/status.pipe";
+import { Statuses } from '../../../shared/models/enums/task.enums';
 
 @Component({
     selector: 'app-tasks-filter-card',
@@ -21,10 +21,10 @@ import { StatusPipe } from "../../../entities/task/lib/status.pipe";
     ]
 })
 export class TasksFilterCardComponent implements OnDestroy {
-  title = 'Select filters';
-  statuses = [Statuses.todo, Statuses.progress, Statuses.complete];
-  form!: FormGroup;
-  notifier = new Subject();
+  public title = 'Select filters';
+  public statuses = [Statuses.todo, Statuses.progress, Statuses.complete];
+  public form!: FormGroup;
+  private notifier = new Subject();
 
   constructor(
     private fb: FormBuilder,
@@ -57,7 +57,7 @@ export class TasksFilterCardComponent implements OnDestroy {
       this.clearFiltersQuery();
   }
 
-  private clearFiltersQuery() {
+  private clearFiltersQuery(): void {
     of('clear-filters').pipe(
       withLatestFrom(this.store.select(getTasksQuerySelector)),
       map(([_, currentQuery]) => {

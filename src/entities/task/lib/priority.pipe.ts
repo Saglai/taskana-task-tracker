@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Priorities } from '../api/types';
+import { Priorities } from '../../../shared/models/enums/task.enums';
 
 @Pipe({
   name: 'priority',

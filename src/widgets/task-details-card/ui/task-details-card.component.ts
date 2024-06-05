@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Location } from '@angular/common';
 import { UiKitModule } from '../../../shared/ui';
 import { SharedModule } from '../../../shared/lib';
-import { Task } from '../../../entities/task/api/types';
+
 import { tasksActions } from '../../../entities/task/model/task.actions';
 import { getSelectedTask } from '../../../entities/task/model/task.selectors';
 import { TaskCardComponent } from "../../../entities/task/ui/task-card/task-card.component";
+import { Task } from '../../../shared/models/types/task.types';
 
 @Component({
     selector: 'app-task-details-card',
@@ -22,12 +22,11 @@ import { TaskCardComponent } from "../../../entities/task/ui/task-card/task-card
     ]
 })
 export class TaskDetailsCardComponent {
-  task$!: Observable<Task | undefined | null>;
+  public task$!: Observable<Task | undefined | null>;
 
   constructor(
     private route: ActivatedRoute, 
-    private store: Store, 
-    private location: Location
+    private store: Store
   ) {}
 
   ngOnInit(): void {
@@ -39,9 +38,5 @@ export class TaskDetailsCardComponent {
     this.store.dispatch(tasksActions.setSelectedTaskId({id}));
     this.store.dispatch(tasksActions.getSelectedTask());
     this.task$ = this.store.select(getSelectedTask);
-  }
-
-  goBack(): void {
-    this.location.back();
   }
 }

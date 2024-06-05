@@ -25,7 +25,7 @@ import { TaskFormComponent } from "../../../entities/task/ui/task-form/task-form
     ]
 })
 export class TaskAddPage implements OnInit {
-  notifier = new Subject();
+  private notifier = new Subject();
 
   constructor(
     private snackbar: MatSnackBar, 

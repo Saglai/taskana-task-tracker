@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Task, TaskSortQuery, TasksSortBy } from '../../types';
+import { Task, TaskSortQuery } from '../../../../../shared/models/types/task.types';
+import { TasksSortBy } from '../../../../../shared/models/enums/task.enums';
 
 @Injectable({
   providedIn: 'root'

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ParamsFilters, Task, TaskFilterBy, TaskFilterQuery } from '../../types';
+import { Task, TaskFilterBy, TaskFilterQuery } from '../../../../../shared/models/types/task.types';
+import { ParamsFilters } from '../../../../../shared/models/enums/task.enums';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
-  
   filterTasks(params: TaskFilterQuery, tasksList: Task[]): Task[] {
     if (!this.hasFilterParams(params)) {
       return tasksList;

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { FilterService } from './helpers/filter.service';
 import { SortService } from './helpers/sort.service';
-import { AddTaskReturnType, CreateTask, Task, TaskFilterQuery, TaskSortQuery, TasksQuery } from '../types';
 import { Observable, of } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 import { RequestResponse } from '../../../../shared/api';
+import { AddTaskReturnType, CreateTask, Task, TaskFilterQuery, TaskSortQuery, TasksQuery } from '../../../../shared/models/types/task.types';
 
 @Injectable({
   providedIn: 'root'
@@ -32,11 +32,7 @@ export class TaskLocalStorageService {
     const tasksList = this.getTasksLocalStorage();
     const result = tasksList.find(task => task.id === id);
 
-    if (!result) {
-      return of(null);
-    }
-
-    return of(result);
+    return result ? of(result) : of(null);
   }
 
   updateTask(id: string, updatedTask: Task): Observable<RequestResponse> {
@@ -63,7 +59,7 @@ export class TaskLocalStorageService {
     const tasksJson = localStorage.getItem(this.baseKey);
     
     if (!tasksJson) {
-      return []
+      return [];
     }
 
     return JSON.parse(tasksJson);

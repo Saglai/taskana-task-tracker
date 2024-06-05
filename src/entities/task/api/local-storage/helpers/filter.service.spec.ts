@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-
 import { FilterService } from './filter.service';
-import { Statuses, Task, TaskFilterQuery } from '../../types';
+import { Task, TaskFilterQuery } from '../../../../../shared/models/types/task.types';
+import { Statuses } from '../../../../../shared/models/enums/task.enums';
+
 
 describe('FilterService', () => {
   let service: FilterService;
@@ -48,7 +49,7 @@ describe('FilterService', () => {
     .toEqual(JSON.stringify(tasksListByDesc));
   });
 
-  it('should return the tasks list as it was with deadline assignTo params', () => {
+  it('should return the tasks list as it was with undefined deadline params', () => {
     const params: TaskFilterQuery = { deadline: undefined}
     expect(JSON.stringify(service.filterTasks(params, tasksListByDesc)))
     .toEqual(JSON.stringify(tasksListByDesc));

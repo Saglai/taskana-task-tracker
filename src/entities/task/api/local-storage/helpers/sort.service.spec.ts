@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-
 import { SortService } from './sort.service';
-import { Statuses, Task, TaskSortQuery, TasksSortBy } from '../../types';
+import { Task, TaskSortQuery } from '../../../../../shared/models/types/task.types';
+import { Statuses, TasksSortBy } from '../../../../../shared/models/enums/task.enums';
+
 
 describe('SortService', () => {
   let service: SortService;

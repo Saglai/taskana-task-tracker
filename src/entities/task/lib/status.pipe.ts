@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Statuses } from '../api/types';
+import { Statuses } from '../../../shared/models/enums/task.enums';
 
 @Pipe({
   name: 'status',

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TasksSortBy } from '../../../entities/task/api/types';
+import { TasksSortBy } from '../../../shared/models/enums/task.enums';
 
 @Pipe({
   name: 'sortBy',

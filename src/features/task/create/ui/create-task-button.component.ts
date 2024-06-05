@@ -15,7 +15,7 @@ export class CreateTaskButtonComponent {
   constructor(private store: Store) {}
   @Input() isDisable: boolean = true;
 
-  onAdd() {
+  onAdd(): void {
     this.store.dispatch(tasksActions.addTask());
   }
 }

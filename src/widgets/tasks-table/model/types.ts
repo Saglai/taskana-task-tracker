@@ -1,4 +1,4 @@
-import { Statuses } from "../../../entities/task/api/types"
+import { Statuses } from "../../../shared/models/enums/task.enums"
 
 export type ListColumn = {
     label: string, 

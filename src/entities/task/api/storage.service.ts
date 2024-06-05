@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AddTaskReturnType, CreateTask, Task, TasksQuery } from './types';
 import { Observable } from 'rxjs';
 import {TaskLocalStorageService} from './local-storage/task-local-storage.service';
+import { RequestResponse } from '../../../shared/api/types';
+import { AddTaskReturnType, CreateTask, Task, TasksQuery } from '../../../shared/models/types/task.types';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class StorageService {
     return this.repo.getTaskById(id);
   }
 
-  updateTask(id: string, updatedTask: Task): Observable<any> {
+  updateTask(id: string, updatedTask: Task): Observable<RequestResponse> {
     return this.repo.updateTask(id, updatedTask);
   }
 

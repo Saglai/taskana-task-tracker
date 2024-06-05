@@ -9,11 +9,12 @@ import { ListColumn, TableRowData } from "../model/types";
 import { UiKitModule } from "../../../shared/ui";
 import { SharedModule } from "../../../shared/lib";
 import { RouterModule } from "@angular/router";
-import { Statuses, Task, TasksQuery, TasksSortBy } from "../../../entities/task/api/types";
 import { filterActions, tasksActions } from "../../../entities/task/model/task.actions";
 import { getTasksQuerySelector, getTasksSelector } from "../../../entities/task/model/task.selectors";
 import { PriorityPipe } from "../../../entities/task/lib/priority.pipe";
 import { StatusPipe } from "../../../entities/task/lib/status.pipe";
+import { Statuses, TasksSortBy } from "../../../shared/models/enums/task.enums";
+import { Task, TasksQuery } from "../../../shared/models/types/task.types";
 
 @Component({
     selector: 'app-tasks-table',
@@ -34,10 +35,10 @@ import { StatusPipe } from "../../../entities/task/lib/status.pipe";
 })
 export class TasksTableComponent implements OnInit {
     private notifier = new Subject();
-    notFoundTableDataMessage = 'No suitable data available. Please add a task or update the filter.';
-    statuses = [Statuses.todo, Statuses.progress, Statuses.complete];
+    public notFoundTableDataMessage = 'No suitable data available. Please add a task or update the filter.';
+    public statuses = [Statuses.todo, Statuses.progress, Statuses.complete];
 
-    columns: ListColumn[] = [
+    public columns: ListColumn[] = [
         {label: 'Title', isSort: false, property: 'title'}, 
         {label: 'Deadline', isSort: true, property: 'deadline'},
         {label: 'Priority', isSort: false, property: 'priority'}, 
@@ -46,9 +47,9 @@ export class TasksTableComponent implements OnInit {
         {label: 'Edit', isSort: false, property: 'edit'},
         {label: 'Info', isSort: false, property: 'info'}
     ];
-    tasksList: Task[] = [];
-    taskForm!: FormGroup;
-    isLoading!: boolean;
+    public tasksList: Task[] = [];
+    public taskForm!: FormGroup;
+    public isLoading!: boolean;
     
     constructor(
         private store: Store, 
@@ -115,7 +116,7 @@ export class TasksTableComponent implements OnInit {
             tableRowArray: this.fb.array([])
         });
 
-        tasks.forEach(task => {this.tableRowArray.push(this.createTableRow(task))});
+        tasks.forEach(task => this.tableRowArray.push(this.createTableRow(task)));
     }
 
     private createTableRow(task: Task): FormGroup {

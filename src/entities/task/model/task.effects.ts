@@ -5,7 +5,8 @@ import { Store } from "@ngrx/store";
 import { filterActions, tasksActions } from "./task.actions";
 import { catchError, concatMap, debounceTime, map, of, switchMap, withLatestFrom } from "rxjs";
 import { getNewTaskSelector, getSelectedTaskId, getTasksQuerySelector } from "./task.selectors";
-import { Task } from "../api/types";
+import { Task } from "../../../shared/models/types/task.types";
+
 
 @Injectable()
 export class TaskEffects {

@@ -13,7 +13,7 @@ import { filterActions } from '../../../../entities/task/model/task.actions';
 export class FilterTasksButtonComponent {
   constructor(private store: Store) {}
 
-  onFilter() {
+  onFilter(): void {
     this.store.dispatch(filterActions.filterTasksTable());
   }
 }

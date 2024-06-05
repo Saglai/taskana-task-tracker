@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from "@ngrx/store"
-import { CreateTask, Task, TasksQuery } from "../api/types"
+import { CreateTask, Task, TasksQuery } from "../../../shared/models/types/task.types"
 
 export const tasksActions = createActionGroup({
     source: 'Tasks', 
