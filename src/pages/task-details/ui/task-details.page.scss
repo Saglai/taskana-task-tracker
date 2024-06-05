@@ -1,9 +1,9 @@
 .outer-container {
     display: flex;
     flex-direction: column;
-    width: 900px;
+    justify-content: left;
 
     .content__header {
-        margin-bottom: 20px;
+        margin-bottom: 1.5%;
     }
 }
