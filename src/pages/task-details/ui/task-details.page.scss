@@ -1,9 +1,11 @@
+@import '../../../styles/vars';
+
 .outer-container {
     display: flex;
     flex-direction: column;
     justify-content: left;
 
     .content__header {
-        margin-bottom: 1.5%;
+        margin-bottom: $base-margin-bottom;
     }
 }

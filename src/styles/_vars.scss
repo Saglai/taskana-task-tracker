@@ -1,0 +1,22 @@
+//base
+$base-border: 1px solid rgba(0, 0, 0, 0.266);
+$base-box-shadow: rgba(0, 0, 0, 0.266) 0px 4px 12px;
+$base-margin-bottom: 1.5%;
+$base-padding: 1%;
+
+//color
+$main-color: #f06a69;
+
+//forms
+$form-two-line-controls-width: 49%;
+$form-margin-right: 2%;
+
+//fonts
+$font-title-size: 1.5em;
+$font-title-weight: 500;
+$font-text-size: 1em;
+
+@mixin font-title {
+    font-size: $font-title-size;
+    font-weight: $font-title-weight;
+}

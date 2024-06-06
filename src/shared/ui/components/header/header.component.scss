@@ -1,7 +1,9 @@
+@import '../../../../styles/vars';
+
 .header-container {
     width: 100%;
     background-color: black;
-    color: #f06a69;
+    color: $main-color;
     padding: 1% 1%;
 
     h1 {

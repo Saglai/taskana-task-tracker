@@ -1,3 +1,5 @@
+@import '../../../styles/vars';
+
 .header-container {
     width: 100%;
     display: flex;
@@ -5,10 +7,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5% 1%;
-    box-shadow: rgba(0, 0, 0, 0.266) 0px 4px 12px;
+    box-shadow: $base-box-shadow;
 
     .title-container {
-        font-size: 1.5em;
-        font-weight: 500;
+        @include font-title;
     }
 }

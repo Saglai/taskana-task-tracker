@@ -1,12 +1,13 @@
+@import '../../../styles/vars';
+
 .filter-card {
     width: 50%;
     min-width: 30em;
-    border: 1px solid rgba(0, 0, 0, 0.266);;
+    border: $base-border;
 
     .filter-card__title {
-        font-size: 1.5em;
-        font-weight: 500;
-        margin-bottom: 1.5%;
+        @include font-title;
+        margin-bottom: $base-margin-bottom;
     }
 
     .form__assign-to-container {
@@ -21,16 +22,16 @@
         width: 100%;
 
         .status {
-            width: 49%;
-            margin-right: 2%;
+            width: $form-two-line-controls-width;
+            margin-right: $form-margin-right;
         }
 
         .deadline {
-            width: 49%;
+            width: $form-two-line-controls-width;
         }
     }
 
     .clear-btn {
-        margin-right: 2%;
+        margin-right: $form-margin-right;
     }
 }

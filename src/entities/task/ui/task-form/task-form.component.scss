@@ -1,26 +1,28 @@
+@import '../../../../styles/vars';
+
 .add-task-card {
     width: 34em;
-    border: 1px solid rgba(0, 0, 0, 0.266);
+    border: $base-border;
 
     .add-task-card__form {
         display: flex;
         flex-direction: column;
         
         .status {
-            width: 49%;
-            margin-right: 2%;
+            width: $form-two-line-controls-width;
+            margin-right: $form-margin-right;
         }
 
         .priority {
-            width: 49%;
+            width: $form-two-line-controls-width;
         }
 
         .deadline {
-            margin-bottom: 1.5%;
+            margin-bottom: $base-margin-bottom;
         }
 
         .clear-btn {
-            margin-right: 2%;
+            margin-right: $form-margin-right;
         }
     }
 }

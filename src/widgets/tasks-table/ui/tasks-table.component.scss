@@ -1,10 +1,12 @@
+@import '../../../styles/vars';
+
 .outer-container {
     width: 100%;
     min-width: 60em;
-    padding: 1%;
-    padding-bottom: 1%;
-    box-shadow: rgba(0, 0, 0, 0.266) 0px 4px 12px;
-    border: 1px solid rgba(0, 0, 0, 0.266);
+    padding: $base-padding;
+    padding-bottom: $base-padding;
+    box-shadow: $base-box-shadow;
+    border: $base-border;
     
     .mat-column-title {
         width: 18em !important;
@@ -39,7 +41,7 @@
     }
 
     .not-found-message {
-        padding: 1%;
+        padding: $base-padding;
     }
 
     .mat-mdc-row .mat-mdc-cell {
